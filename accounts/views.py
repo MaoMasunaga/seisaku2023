@@ -12,7 +12,6 @@ def signup(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-        # ユーザー名が既に存在するかチェック
         if CustomUser.objects.filter(username=username).exists():
             messages.error(request, 'このユーザー名は既に使用されています。別のユーザー名を選択してください。')
         else:
