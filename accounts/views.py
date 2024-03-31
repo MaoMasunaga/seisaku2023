@@ -35,7 +35,7 @@ def signin(request):
 
         if user.password == password:
             login(request, user)
-            return redirect('index')  # ログイン後のページにリダイレクト
+            return redirect('index') 
         else:
             messages.error(request, 'ログインに失敗しました。ユーザー名とパスワードを確認してください。')
             return render(request, 'index.html')
