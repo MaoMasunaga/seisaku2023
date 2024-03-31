@@ -1,5 +1,5 @@
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView
 from django.http import HttpResponse
 from django.template import loader
@@ -108,6 +108,16 @@ class ContactView(FormView):
         )
         emailMessage.send()
         return super().form_valid(form)
+
+def memo_list(request):
+    username = request.user.username
+    user_memos = PostModel.objects.filter(title=username)
+    return render(request, 'memo_list.html', {'memos': user_memos})
+
+def delete_memo(request, memo_id):
+    memo = PostModel.objects.get(pk=memo_id)
+    memo.delete()
+    return redirect('memo_list')
     
 class ListClass(ListView):
     template_name = 'search.html'

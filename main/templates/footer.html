@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <p>{{ user }} でログイン中</p>
     <form action="{% url 'signout' %}" method="post" target="index">
         {% csrf_token %}
         <input type="submit" value="ログアウト" />

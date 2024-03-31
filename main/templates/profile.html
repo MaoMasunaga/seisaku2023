@@ -12,6 +12,18 @@
     <h2>プロフィール</h2>
     <hr width="100%">
     <p>ログイン中のユーザー：{{ user }}</p>
-    <p>つぶやき一覧(表示は間に合わなかった)</p>
+    <h1>My Memos</h1>
+    <ul>
+        {% for memo in memos %}
+        <p>{{ memo.title }} - {{ memo.memo }} 
+            <form action="{% url 'delete_memo' memo.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Delete</button>
+            </form>
+        </p>
+        {% endfor %}
+    </ul>
+
+
 </body>
 </html>

@@ -17,7 +17,9 @@ urlpatterns = [
     path('contactFn/', views.contactFn, name='contactFn'),
     path('thanks/', views.thanks, name='thanks'),
     path('contact/home.html', views.home, name='home'),
-    path('home', views.home, name='home'),
+    path('memo_list.html', views.memo_list, name='memo_list'),
+    path('delete/<int:memo_id>/', views.delete_memo, name='delete_memo'),
+
 ]
 
 

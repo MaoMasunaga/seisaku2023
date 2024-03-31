@@ -9,7 +9,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>設定</h2>
+    <h2>あなたのつぶやき一覧</h2>
     <hr width="100%">
+    <ul>
+        {% for memo in memos %}
+        <li>{{ memo.memo }} 
+            <form action="{% url 'delete_memo' memo.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">削除する</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+
+
 </body>
 </html>

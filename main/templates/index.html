@@ -27,6 +27,24 @@
 </body>
 </html>
 {% else %}
+<link rel="stylesheet" href="{% static 'main/style.css' %}">
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>たぬったー</title>
+    <link rel="icon" href="static/logo.png">
+</head>
+<body>
+
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
 
 <p>ログインしてください</p>
   <form action="{% url 'signin' %}" method="post">
@@ -42,5 +60,7 @@
     <input type="password" name="password" placeholder="パスワード" />
     <input type="submit" value="ユーザー作成" />
   </form>
+</body>
+</html>
 
 {% endif %}
