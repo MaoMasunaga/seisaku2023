@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>つぶやき一覧</h2>
+    <hr width="100%">
+    <div class="container">
+        {% for post in object_list %}
+        <div class="post">
+          <p>ユーザー：{{ post.title }}</p>
+          <p>つぶやき：{{ post.memo }}</p>
+          <p>--------------------</p>
+        </div>
+        {% endfor %}
+        <div class="form">
+          <a href="{% url 'form' %}">またつぶやく</a>
+        </div>
+      </div>
+      
+  </body>
+  </html>
+</body>
+</html>

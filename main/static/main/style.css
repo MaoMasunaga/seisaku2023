@@ -1,0 +1,26 @@
+header li{
+    list-style:none;
+    font-size: 1.5em;
+
+}
+
+header img {
+    width: 70px;
+    height: 70px;
+    vertical-align: middle;
+ }
+
+.tweetbox input {
+    text-align:right;
+}
+
+.base {
+    display: flex;
+    flex-direction: row;
+}
+
+.button {
+    border: none;
+    outline: none;
+    background: transparent;
+  }

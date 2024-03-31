@@ -1,0 +1,46 @@
+{% load static %}
+{% if user.is_authenticated %}
+<link rel="stylesheet" href="{% static 'main/style.css' %}">
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>たぬったー</title>
+    <link rel="icon" href="static/logo.png">
+</head>
+<body>
+<div class="base">
+    <div class="header">
+        <iframe src="header.html" name="header" frameborder="1" width="300" height="710"></iframe>
+    </div>
+
+    <div class="home">
+    <iframe src="home.html" name="home" frameborder="1" width="900" height="710"></iframe>
+    </div>
+
+    <div class="footer">
+        <iframe src="footer.html" name="footer" frameborder="1" width="300" height="710"></iframe>
+    </div>
+   
+</div>
+</body>
+</html>
+{% else %}
+
+<p>ログインしてください</p>
+  <form action="{% url 'signin' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="ユーザー名" />
+    <input type="password" name="password" placeholder="パスワード" />
+    <input type="submit" value="ログイン" />
+  </form>
+  <p>アカウント作成はこちらから</p>
+  <form action="{% url 'signup' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="ユーザー名" />
+    <input type="password" name="password" placeholder="パスワード" />
+    <input type="submit" value="ユーザー作成" />
+  </form>
+
+{% endif %}
